@@ -1,10 +1,11 @@
 class StoreController < ApplicationController
   def index
     @products = Product.order(:title)
-    if session[:counter].nil?
-      session[:counter] = 1
-    else
-      session[:counter] += 1
-    end
+    @counter = increment_counter
+  end
+
+  def increment_counter
+    session[:counter] ||= 0
+    session[:counter] += 1
   end
 end
