@@ -16,4 +16,4 @@
     </div>
 <% end %>
 
-<div class="counter"><%= @counter %></div>
+<div class="counter"><%= "This page has had #{pluralize(@counter, "view", "views")}" %></div>
