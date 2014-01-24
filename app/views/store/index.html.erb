@@ -16,4 +16,4 @@
     </div>
 <% end %>
 
-<div class="counter"><%= "This page has had #{pluralize(@counter, "view", "views")}" %></div>
+<% if @counter > 5 %><div class="counter"><%= "This page has had #{pluralize(@counter, "view", "views")}" %></div><% end %>
