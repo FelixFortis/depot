@@ -54,7 +54,8 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should have sidebar links" do
-    assert_select '.list_actions' do |elements|
+    get :index
+    assert_select ".list_actions" do |elements|
       elements.each do |element|
         assert_select element, "a", 3
       end
