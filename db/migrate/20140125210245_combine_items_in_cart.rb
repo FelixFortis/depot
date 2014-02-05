@@ -20,6 +20,16 @@ class CombineItemsInCart < ActiveRecord::Migration
   end
 
   def down
+    # split line items with a quantity greater than 1 into multiple single line items
+    LineItem.where("quantity>1").each do |line_item|
 
+      # add individual items
+      line_item.quantity.times do
+        LineItem.create(cart_id: line_item.cart_id, product_id: line_item.product_id)
+      end
+
+      # remove original line item
+      line_item.destroy
+    end
   end
 end
