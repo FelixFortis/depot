@@ -11,30 +11,23 @@ require 'test_helper'
 
 class CartTest < ActiveSupport::TestCase
 
-  test "cart should create a new line item when adding a new product" do
-    # set up cart with a product in
-    cart = Cart.new
-    cart.add_product(products(:coffee).id)
-    cart.save
-    assert_equal(1, cart.line_items.count)
-
-    # add a new unique product to the cart
-    cart.add_product(products(:ruby).id)
-    cart.save
-    assert_equal(2, cart.line_items.count)
+  test "add unique products" do
+    cart = Cart.create
+    book_one = products(:ruby)
+    book_two  = products(:coffee)
+    cart.add_product(book_one.id).save!
+    cart.add_product(book_two.id).save!
+    assert_equal 2, cart.line_items.size
+    assert_equal book_one.price + book_two.price, cart.total_price
   end
 
-  test "cart should update existing line item quantity when adding an existing product" do
-    # set up cart with a product in
-    cart = Cart.new
-    cart.add_product(products(:ruby).id)
-    cart.save
-    assert_equal(1, cart.line_items.count)
-
-    # add an existing product to the cart
-    cart.add_product(products(:ruby).id)
-    cart.save
-    assert_equal(1, cart.line_items.count)
-    assert_equal(2, cart.line_items(:ruby).size)
+  test "add_duplicate_product" do
+    cart = Cart.create
+    ruby_book = products(:ruby)
+    cart.add_product(ruby_book.id).save!
+    cart.add_product(ruby_book.id).save!
+    assert_equal 2*ruby_book.price, cart.total_price
+    assert_equal 1, cart.line_items.size
+    assert_equal 2, cart.line_items[0].quantity
   end
 end

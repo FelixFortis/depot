@@ -15,19 +15,6 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
-
-two:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
-#START:ruby
-
-one:
   id: 7
   title: One
   description: MyText
@@ -75,4 +62,3 @@ rails:
     including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
   image_url: rtp.jpg
   price: 34.95
-#END:ruby
