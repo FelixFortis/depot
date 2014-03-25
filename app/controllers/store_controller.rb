@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
   def index
     @products = Product.order(:title)
+    @cart = current_cart
     @counter = increment_counter
     @time = current_time
   end
