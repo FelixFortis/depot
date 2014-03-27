@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'annotate'
+gem 'jquery-rails'
 
 group :development do
   gem 'meta_request'
