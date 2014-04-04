@@ -18,14 +18,14 @@ one:
   id: 7
   title: One
   description: MyText
-  image_url: MyString
+  image_url: test1.jpg
   price: 9.99
 
 two:
   id: 6
   title: Two
   description: MyText
-  image_url: MyString
+  image_url: test2.jpg
   price: 9.99
 
 coffee:
