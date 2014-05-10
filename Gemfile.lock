@@ -116,6 +116,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   x86-mingw32
@@ -132,3 +133,4 @@ DEPENDENCIES
   rails (= 3.2.14)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)
